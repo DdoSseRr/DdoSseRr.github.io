@@ -1,1 +1,672 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+        }
+        .button {
+            background-color: #050505c0; 
+            border: 2px solid #000000;
+            color: white;
+            padding: 25px 45px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            transition-duration: 0.4s;
+        }
+        .button:hover {
+            background-color: #fff;
+            color: rgba(7, 6, 6, 0.658);
+        }
+        .button-container {
+            display: flex; /* Включаем flexbox */
+            justify-content: center; /* Горизонтальное выравнивание по центру */
+            align-items: center; /* Вертикальное выравнивание по центру */
+             
+        }
+
+    </style>
+    <title>Пример страницы</title>
+    <!-- <style>
+            
+        @import url("https://fonts.googleapis.com/css?family=Raleway");
+        
+        :root {
+          --glow-color: hsl(186 100% 69%);
+        }
+        
+        *,
+        *::before,
+        *::after {
+          box-sizing: border-box;
+        }
+        
+        
+        
+        .glowing-btn {
+          position: relative;
+          color: var(--glow-color);
+          cursor: pointer;
+          padding: 0.35em 1em;
+          border: 0.15em solid var(--glow-color);
+          border-radius: 0.45em;
+          background: none;
+          perspective: 2em;
+          font-family: "Raleway", sans-serif;
+          font-size: 2em;
+          font-weight: 900;
+          letter-spacing: 1em;
+        
+          -webkit-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+            0px 0px 0.5em 0px var(--glow-color);
+          -moz-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+            0px 0px 0.5em 0px var(--glow-color);
+          box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+            0px 0px 0.5em 0px var(--glow-color);
+          animation: border-flicker 2s linear infinite;
+        }
+        
+        .glowing-txt {
+          float: left;
+          margin-right: -0.8em;
+          -webkit-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
+            0 0 0.45em var(--glow-color);
+          -moz-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
+            0 0 0.45em var(--glow-color);
+          text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--glow-color);
+          animation: text-flicker 3s linear infinite;
+        }
+        
+        .faulty-letter {
+          opacity: 0.5;
+          animation: faulty-flicker 2s linear infinite;
+        }
+        
+        .glowing-btn::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          opacity: 0.7;
+          filter: blur(1em);
+          transform: translateY(120%) rotateX(95deg) scale(1, 0.35);
+          background: var(--glow-color);
+          pointer-events: none;
+        }
+        
+        .glowing-btn::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          opacity: 0;
+          z-index: -1;
+          background-color: var(--glow-color);
+          box-shadow: 0 0 2em 0.2em var(--glow-color);
+          transition: opacity 100ms linear;
+        }
+        
+        .glowing-btn:hover {
+          color: rgba(0, 0, 0, 0.8);
+          text-shadow: none;
+          animation: none;
+        }
+        
+        .glowing-btn:hover .glowing-txt {
+          animation: none;
+        }
+        
+        .glowing-btn:hover .faulty-letter {
+          animation: none;
+          text-shadow: none;
+          opacity: 1;
+        }
+        
+        .glowing-btn:hover:before {
+          filter: blur(1.5em);
+          opacity: 1;
+        }
+        
+        .glowing-btn:hover:after {
+          opacity: 1;
+        }
+        
+        @keyframes faulty-flicker {
+          0% {
+            opacity: 0.1;
+          }
+          2% {
+            opacity: 0.1;
+          }
+          4% {
+            opacity: 0.5;
+          }
+          19% {
+            opacity: 0.5;
+          }
+          21% {
+            opacity: 0.1;
+          }
+          23% {
+            opacity: 1;
+          }
+          80% {
+            opacity: 0.5;
+          }
+          83% {
+            opacity: 0.4;
+          }
+        
+          87% {
+            opacity: 1;
+          }
+        }
+        
+        @keyframes text-flicker {
+          0% {
+            opacity: 0.1;
+          }
+        
+          2% {
+            opacity: 1;
+          }
+        
+          8% {
+            opacity: 0.1;
+          }
+        
+          9% {
+            opacity: 1;
+          }
+        
+          12% {
+            opacity: 0.1;
+          }
+          20% {
+            opacity: 1;
+          }
+          25% {
+            opacity: 0.3;
+          }
+          30% {
+            opacity: 1;
+          }
+        
+          70% {
+            opacity: 0.7;
+          }
+          72% {
+            opacity: 0.2;
+          }
+        
+          77% {
+            opacity: 0.9;
+          }
+          100% {
+            opacity: 0.9;
+          }
+        }
+        
+        @keyframes border-flicker {
+          0% {
+            opacity: 0.1;
+          }
+          2% {
+            opacity: 1;
+          }
+          4% {
+            opacity: 0.1;
+          }
+        
+          8% {
+            opacity: 1;
+          }
+          70% {
+            opacity: 0.7;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+        
+        @media only screen and (max-width: 600px) {
+          .glowing-btn{
+            font-size: 1em;
+          }
+        }
+           
+    </style> -->
+</head>
+<body>
+    
+<style>
+.tmpl_hh_wrapper p,
+.tmpl_hh_wrapper a,
+.tmpl_hh_wrapper img,
+.tmpl_hh_wrapper ol,
+.tmpl_hh_wrapper ul,
+.tmpl_hh_wrapper li {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.hht-vacancydescription {
+    padding: 0px;
+}
+
+.tmpl_hh_wrapper .l-cell,
+.tmpl_hh_wrapper .l-paddings {
+    padding: 0px !important;
+}
+
+.tmpl_hh_wrapper .b-vacancy-desc-wrapper {
+    margin-top: 0px !important;    
+}
+
+.tmpl_hh_wrapper .b-vacancy-desc {
+    overflow: visible !important;
+    line-height: inherit;
+}
+
+.tmpl_hh_content ol li b,
+.tmpl_hh_content ol li strong,
+.tmpl_hh_content ol li p b,
+.tmpl_hh_content ol li p strong,
+.tmpl_hh_content ul li b,
+.tmpl_hh_content ul li strong,
+.tmpl_hh_content ul li p b,
+.tmpl_hh_content ul li p strong {
+    font-weight: normal;
+    font-size: inherit !important;
+    color: inherit !important;
+    margin: 0 !important;
+    text-transform: none;
+}
+
+.tmpl_hh_content ol li p,
+.tmpl_hh_content ul li p {
+    font-weight: normal;
+    margin: 0;
+}
+
+.tmpl_hh_content p b,
+.tmpl_hh_content p strong {
+    display: inline;
+    margin: 0;
+}
+
+.tmpl_hh_wrapper {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 690px;
+    position: relative;
+    word-break: normal;
+    overflow: hidden;
+    font-family: 'Tahoma';
+    font-size: 16px;
+    line-height: 22px;
+    color: #333333;
+    z-index: 1;
+    background: #FF7E00;
+}
+
+.tmpl_hh_slider {
+    position: relative;
+}
+
+.tmpl_hh_wrapper img {
+    width: 100%;
+    display: block;
+}
+
+.tmpl_hh_content {
+    position: relative;
+    padding: 37px 40px 0 40px;
+    z-index: 3;
+}
+
+.tmpl_hh_content p:first-child,
+.tmpl_hh_content>strong:first-child,
+.tmpl_hh_content div>strong:first-child {
+    margin-top: 0 !important;
+}
+
+.tmpl_hh_content p,
+.tmpl_hh_content b,
+.tmpl_hh_content strong {
+    margin: 40px 0 16px;
+}
+
+.tmpl_hh_content b, 
+.tmpl_hh_content strong {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 18px;
+    text-transform: uppercase;
+}
+
+.tmpl_hh_content ol,
+.tmpl_hh_content ul {
+    margin-left: 20px;
+    list-style: none !important;
+}
+
+.tmpl_hh_content ol {
+    counter-reset: list_counter;
+}
+
+.tmpl_hh_content li {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.tmpl_hh_content ul ul,
+.tmpl_hh_content ul ol,
+.tmpl_hh_content ol ol,
+.tmpl_hh_content ol ul {
+    margin-top: 16px;
+}
+
+.tmpl_hh_content ol>li {
+    counter-increment: list_counter;    
+}
+
+.tmpl_hh_content li:before {
+    position: absolute;
+    left: -20px;
+    top: 0;
+}
+
+.tmpl_hh_content ul>li:before {
+    content: "\2022";
+    color: #F2994A;
+}
+
+.tmpl_hh_content ol>li:before {
+    content: counter(list_counter)'.';
+    left: auto;
+    right: 100%;
+    margin-right: 2px;
+}
+
+.tmpl_hh_flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.tmpl_hh_video {
+    width: 100%;
+    height: 0;
+    padding-bottom: 47%;
+    position: relative;
+}
+
+.tmpl_hh_video img, .tmpl_hh_video iframe{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.tmpl_hh_header {
+    background: #FF7E00;
+    padding: 24px 24px 26px;
+}
+
+.tmpl_hh_header__photo {
+    box-shadow: 0px 8px 17px #ac5500;
+}
+
+.tmpl_hh_background {
+    position: relative;
+    z-index: 3;
+    margin: 0 25px;
+    background: #fff url(https://hhcdn.ru/ichameleon/195872.png) no-repeat;
+}
+
+.tmpl_hh_about {
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.tmpl_hh_about p {
+    position: relative;
+    margin: 0 0 20px;
+}
+
+.tmpl_hh_about p:before {
+    content: "";
+    width: 19px;
+    height: 30px;
+    background: url(https://hhcdn.ru/ichameleon/195873.svg) no-repeat;
+    position: absolute;
+    left: -42px;
+    top: -3px;
+}
+
+.tmpl_hh_about__line {
+    background: #E3E3E3;
+    height: 1px;
+    margin: 34px auto 22px;
+}
+
+p.tmpl_hh_slogan {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 28px;
+    text-transform: uppercase;
+    margin: 63px 40px  0;
+}
+
+p.tmpl_hh_slogan b {
+    font-size: 26px;
+    display: block;
+    margin-bottom: 13px;
+}
+
+p.tmpl_hh_text {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 28px;
+    text-transform: uppercase;
+    color: #FF7E00;
+    margin: 14px 40px 0;
+    padding-bottom: 37px;
+}
+
+.tmpl_hh_footer {
+    background: #fff;
+    padding: 61px 63px 49px;
+}
+
+.tmpl_hh_background:before {
+    content: "";
+    background: url(https://hhcdn.ru/ichameleon/195874.png) no-repeat;
+    top: 100%;
+    left: -60px;
+    width: 98px;
+    height: 46px;
+    position: absolute;
+}
+
+.tmpl_hh_background:after {
+    content: "";
+    background: url(https://hhcdn.ru/ichameleon/195874.png) no-repeat;
+    top: 100%;
+    right: -60px;
+    width: 98px;
+    height: 46px;
+    position: absolute;
+}
+
+img.tmpl_hh_min {
+    display: none;
+}
+
+.tmpl_hh_copy {
+    font-size: 10px;
+    line-height: 1.2;
+    font-weight: 400;
+    color: rgb(203, 199, 199);
+    text-align: center;
+    padding: 15px 0;
+    background: #fff;
+}
+
+
+@media screen and (max-width: 699px) {
+    .tmpl_hh_wrapper {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    img.tmpl_hh_min {
+        display: block;
+    }
+
+    img.tmpl_hh_max {
+        display: none;
+    }
+
+    .tmpl_hh_header {
+        padding: 9px 10px 12px;
+    }
+
+    .tmpl_hh_background {
+        margin: 0 10px;
+    }
+
+    .tmpl_hh_content {
+        padding: 23px 10px 1px;
+    }
+
+    .tmpl_hh_content:before {
+        content: "";
+        background: #fff url(https://hhcdn.ru/ichameleon/195874.png) no-repeat;
+        top: auto;
+        background-size: 100%;
+        right: -60px;
+        width: 72px;
+        height: 18px;
+        position: absolute;
+        bottom: -0;
+    }
+
+    .tmpl_hh_content:after {
+        content: "";
+        background: #fff url(https://hhcdn.ru/ichameleon/195874.png) no-repeat;
+        top: auto;
+        background-size: 100%;
+        left: -60px;
+        width: 72px;
+        height: 18px;
+        position: absolute;
+        bottom: -0;
+    }
+
+    .tmpl_hh_background:after,
+    .tmpl_hh_background:before {
+        opacity: 0;
+    }
+
+    .tmpl_hh_about {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .tmpl_hh_about__line {
+        margin: 23px auto 19px;
+    }
+
+    p.tmpl_hh_slogan {
+        font-size: 14px;
+        line-height: 22px;
+        margin: 0px -10px 0;
+        background: #fff;
+        padding: 38px 21px 0;
+    }
+
+    p.tmpl_hh_slogan b {
+        font-size: 23px;
+        margin-bottom: 10px;
+        line-height: 28px;
+    }
+
+    p.tmpl_hh_text {
+        font-size: 14px;
+        line-height: 22px;
+        padding: 18px 20px 32px;
+        margin: 0 -10px 0;
+        background: #fff;
+    }
+
+    .tmpl_hh_footer {
+        padding: 0px 0px 0px;
+    }
+
+    .tmpl_hh_about p:before {
+        width: 11px;
+        height: 17px;
+        left: -15px;
+        top: 0px;
+        background-size: 100%;
+    }
+}
+
+</style>
+
+<div class="tmpl_hh_wrapper">
+    <div class="tmpl_hh_header"> 
+        <div class="tmpl_hh_header__photo"><img class="tmpl_hh_max" src="https://hhcdn.ru/ichameleon/251220.jpg" alt=""><img class="tmpl_hh_min" src="https://hhcdn.ru/ichameleon/251236.jpg" alt=""></div>
+    </div>
+    <div class="tmpl_hh_background">
+        <div class="tmpl_hh_content">
+            <p><strong>МЫ ПPЕДЛАГАEM:</strong></p> <ul> <li>Официальное трудоустройство с первого дня;</li> <li>Полный соц. пакет с оплатой больничных и отпусков;</li> <li>Стабильную своевременную заработную плату с выплатами на банковскую карту 2 раза в месяц;</li> <li>Прозрачную систему мотивации: оклад + премия по результатам работы;</li> <li>Компенсацию обеда;</li> <li>Бесплатную удобную корпоративную форму;</li> <li>Комфортные условия труда и отдыха;</li> <li>Участие в программе «приведи друга» с выплатой бонус – <strong>от 10 000</strong> рублей;</li> <li>Программу наставничества: обучим, подскажем, поможем!</li> <li>Возможность для развития и быстрого карьерного роста в магазине;</li> <li>Скидку на весь ассортимент магазинов ОБИ - 10%;</li> <li>Обучение: онлайн курсы, тренинги, мастер- классы по продукту;</li> <li>Заботу о здоровье сотрудников: диспансеризация за счет работодателя, ДМС;</li> <li>Дружную атмосферу в коллективе, корпоративные мероприятия, подарки для сотрудников и их детей и многое другое;</li> </ul> <p> </p> <p>Подскажем, как добраться, учитывая место проживания (корпоративный и/или общественный транспорт до места работы).</p> <p> </p> <p><strong>ЧЕМ ПРЕДСТОИТ ЗАНИМАТЬСЯ:</strong></p> <ul> <li>Помогать покупателям в выборе товаров;</li> <li>Контролировать наличие товара, ценников и плакатов на товары своего отдела.</li> </ul> <p> </p> <p><strong>МЫ ОЖИДАЕМ:</strong></p> <ul> <li>Соблюдение стандартов обслуживания;</li> <li>Ответственный подход к выполнению поставленных задач.</li> </ul> <p> </p> <p><strong>ПРИСОЕДИНЯЙСЯ К НАШЕЙ КОМАНДЕ!</strong></p> <p> </p> <p>Данная вакансия также подойдет, если вы искали: продавец-консультант, продавец, работник магазина, работник торгового зала, подработка, свободный график, сменный график, гибкий график, работа рядом с домом, без опыта работы, начало карьеры, работа Санкт-Петербург, кассир, администратор, продавец-кассир, кассир.</p> <div> <div> <div> <p> </p> </div> </div> </div></div>  
+        <p class="tmpl_hh_slogan"><b>Добивайся с ОБИ!</b>Сделав свой выбор - станешь частью большой и сильной команды, имя которой ОБИ.</p>
+        <p class="tmpl_hh_text">#работавоби #obiteam #orangeteam</p>
+    </div>  
+    <div class="tmpl_hh_footer">
+        <div class="tmpl_hh_video">
+            <iframe width="1280" height="720" src="https://www.youtube.com/embed/HmIcAQiL8Vc?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"><!----></iframe>
+        </div>
+    </div>
+<div class="tmpl_hh_copy">ООО "ОБИ Франчайзинговый Центр" представляет бренд OBI</div>
+</div>
+
+
+    <div class="button-container">
+        <a type="button" class="button" href="#">Откликнутся</a>
+    </div>
+    <!-- <div style="flex: content; position: relative;"> -->
+        
+    <!-- </div> -->
+    
+
+</body>
+
+</html>
